@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/venv/
+backend/__pycache__/
+**/__pycache__/
+*.pyc
+
+# Build outputs
+frontend/.next/
+frontend/out/
+.vercel/
+
+# Environment files (contain secrets!)
+.env
+.env.local
+.env.*.local
+frontend/.env.local
+backend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+.pytest_cache/
+
+# Misc
+*.bak
+*.tmp
+.cursor/
+

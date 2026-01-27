@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FDFCFB;
+  --foreground: #262320;
+  --muted: #A69E8F;
+  --border: #E4DFD7;
+  --accent: #E56B3E;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Canvas cursor states */
+.cursor-crosshair {
+  cursor: crosshair;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+/* Mask overlay styling */
+.mask-overlay {
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Version timeline connector */
+.version-connector {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--border), transparent);
+  transform: translateX(-50%);
+}
+
+/* Loading shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--border) 0%,
+    #F0EDE8 50%,
+    var(--border) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+  0% {
+    width: 10%;
+    margin-left: 0;
+  }
+  50% {
+    width: 60%;
+    margin-left: 20%;
+  }
+  100% {
+    width: 10%;
+    margin-left: 90%;
+  }
+}
+
+/* Focus states */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Tooltip styling */
+.tooltip {
+  @apply absolute z-50 px-2 py-1 text-xs font-medium text-white bg-sand-800 rounded shadow-lg;
+  @apply opacity-0 pointer-events-none transition-opacity duration-150;
+}
+
+.tooltip.visible {
+  @apply opacity-100;
+}
+
